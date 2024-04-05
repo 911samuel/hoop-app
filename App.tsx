@@ -1,27 +1,21 @@
 import React from "react";
-import { ImageBackground, StyleSheet, StatusBar } from "react-native"; // Import StatusBar
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { StyleSheet, StatusBar, SafeAreaView } from "react-native";
 
 import WelcomeScreen from "./screens/WelcomeScreen";
+import Colors from "./config/Colors";
 
 export default function App() {
   return (
-    <ImageBackground
-      style={styles.background}
-      source={require("./assets/splash.png")}
-    >
-      <StatusBar barStyle="light-content" />
+    <SafeAreaView style={styles.background}>
       <WelcomeScreen />
-    </ImageBackground>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    resizeMode: "cover",
     paddingTop: StatusBar.currentHeight || 0,
+    backgroundColor: Colors.background,
   },
 });

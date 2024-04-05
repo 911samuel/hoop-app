@@ -8,14 +8,14 @@ import AppButton from "../components/AppButton";
 import colors from "../config/Colors";
 import SingUpText from "../components/SingUpText";
 
-function WelcomeScreen() {
+function HollaScreen() {
   return (
     <View style={styles.container}>
       <SkipText />
       <AppImage image={require("../assets/car.png")} />
-      <AppHeading title="Welcome" />
+      <AppHeading title="Holla" />
       <AppHeading
-        title="Find a best possible way to park"
+        title="Find the best possible parking space nearby your desired destination"
         fontSize={16}
         fontFamily="SpaceGrotesk-Regular"
       />
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+export default HollaScreen;
