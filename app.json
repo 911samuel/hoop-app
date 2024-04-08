@@ -4,12 +4,12 @@
     "slug": "hoop-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/hoop.gif",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/hoop.gif",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#f0ecf4"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -18,13 +18,13 @@
       "supportsTablet": true
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+  "adaptiveIcon": {
+    "foregroundImage": "./assets/hoop.gif",
+    "backgroundColor": "#f0ecf4"
+  }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/hoop.gif"
     },
     "plugins": [
       "expo-font"

@@ -1,15 +1,24 @@
-import React from 'react';
-import { View, Text, StyleSheet } from "react-native";
+import React from "react";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-import colors from '../config/Colors';
+import colors from "../config/Colors";
 
-function SingUpText() {
-    return (
-      <Text style={styles.signUpText}>
-        Don’t have an account?{"   "}
+function SignUpText() {
+  const navigation = useNavigation();
+
+  const handleSignUpPress = () => {
+    navigation.navigate("FindParking" as never); 
+  };
+
+  return (
+    <Text style={styles.signUpText}>
+      Don’t have an account?{"   "}
+      <TouchableOpacity onPress={handleSignUpPress}>
         <Text style={{ color: colors.tomato }}>Sign Up</Text>
-      </Text>
-    );
+      </TouchableOpacity>
+    </Text>
+  );
 }
 
 const styles = StyleSheet.create({
@@ -20,4 +29,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SingUpText;
+export default SignUpText;
