@@ -6,8 +6,10 @@ import * as Font from "expo-font";
 import "react-native-gesture-handler";
 
 import FindParkingScreen from "./screens/FindParkingScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import HollaScreen from "./screens/HollaScreen";
+import OnBoarding from "./screens2/OnBoarding";
+import LoginEmail from "./screens2/LoginEmail";
+import LoginPhone from "./screens2/LoginPhone";
+import SignUp from "./screens2/SignUp";
 
 const Stack = createStackNavigator();
 
@@ -48,14 +50,17 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="FindParking" component={FindParkingScreen} />
-        <Stack.Screen name="Holla" component={HollaScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+		<NavigationContainer>
+			<Stack.Navigator
+				initialRouteName="SignUp"
+				screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="OnBoarding" component={OnBoarding} />
+				<Stack.Screen name="LoginPhone" component={LoginPhone} />
+				<Stack.Screen name="LoginEmail" component={LoginEmail} />
+				<Stack.Screen name="SignUp" component={SignUp} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 };
 
 export default App;

@@ -22,8 +22,11 @@
     "react-dom": "18.2.0",
     "react-native": "0.73.6",
     "react-native-config": "^1.5.1",
+    "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-gesture-handler": "~2.14.0",
-    "react-native-web": "~0.19.6"
+    "react-native-swiper": "^1.6.0",
+    "react-native-web": "~0.19.6",
+    "expo-local-authentication": "~13.8.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

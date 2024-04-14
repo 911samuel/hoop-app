@@ -13,7 +13,7 @@ function SignUpText() {
 
   return (
     <Text style={styles.signUpText}>
-      Don’t have an account?{"   "}
+      Don’t have an account?{"       "}
       <TouchableOpacity onPress={handleSignUpPress}>
         <Text style={{ color: colors.tomato }}>Sign Up</Text>
       </TouchableOpacity>
@@ -23,9 +23,12 @@ function SignUpText() {
 
 const styles = StyleSheet.create({
   signUpText: {
-    fontSize: 14,
+    fontSize: 20,
     color: colors.black,
-    marginTop: 20,
+    marginTop: 0,
+    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 
