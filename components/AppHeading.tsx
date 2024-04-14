@@ -10,6 +10,8 @@ interface AppHeadingProps {
   fontFamily?: string;
   paddingTop?: number;
   paddingBottom?: number;
+  textAlign?: "center" | "auto" | "left" | "right" | "justify" | undefined;
+  width?: string,
 }
 
 function AppHeading({
@@ -17,8 +19,9 @@ function AppHeading({
   color = colors.black,
   fontSize = 24,
   fontFamily = "Avenir-Book",
-  paddingBottom = 9,
-  paddingTop = 43,
+  paddingBottom = 0,
+  paddingTop = 0,
+  textAlign = "center",
 }: AppHeadingProps) {
   const dynamicStyles = {
     fontSize,
@@ -26,16 +29,17 @@ function AppHeading({
     fontFamily,
     paddingBottom,
     paddingTop,
+    textAlign,
+    ...styles.text
   };
 
-  return <Text style={[styles.heroText, dynamicStyles]}>{title}</Text>;
+  return <Text style={dynamicStyles}>{title}</Text>;
 }
 
 const styles = StyleSheet.create({
-  heroText: {
-    width: 289,
-    textAlign: "center",
-  },
-});
+  text: {
+    width: "auto"
+  }
+})
 
 export default AppHeading;

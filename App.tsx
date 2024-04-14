@@ -5,9 +5,12 @@ import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
 
-import FindParkingScreen from "./screens/FindParkingScreen";
-import WelcomeScreen from "./screens/WelcomeScreen";
-import HollaScreen from "./screens/HollaScreen";
+import Home from "./screens/Home";
+import Explore from "./screens/Explore";
+
+import History from "./screens/History";
+import Profile from "./screens/Profile";
+import DetailsCategory from "./screens/DetailsCategory";
 
 const Stack = createStackNavigator();
 
@@ -49,10 +52,16 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Welcome" component={WelcomeScreen} />
-        <Stack.Screen name="FindParking" component={FindParkingScreen} />
-        <Stack.Screen name="Holla" component={HollaScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="History" component={History} />
+        <Stack.Screen name="Explore" component={Explore} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );

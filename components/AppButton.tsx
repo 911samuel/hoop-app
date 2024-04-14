@@ -1,12 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons"; 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/Colors";
 
 type MaterialCommunityIconName =
   | "email"
   | "phone"
+  | "card-search"
+  | "headset"
   | undefined;
 
 interface AppButtonProps {
@@ -26,7 +28,7 @@ function AppButton({
   marginBottom = 0,
   backgroundColor,
   color,
-  iconName, 
+  iconName,
 }: AppButtonProps) {
   const buttonContainerStyle = {
     marginBottom,
@@ -58,7 +60,7 @@ function AppButton({
 const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
-    width: 311,
+    width: "100%",
     height: 60,
     borderRadius: 15,
     alignItems: "center",
