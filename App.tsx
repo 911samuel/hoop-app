@@ -4,12 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 
 import FindParkingScreen from "./screens/FindParkingScreen";
 import OnBoarding from "./screens2/OnBoarding";
 import LoginEmail from "./screens2/LoginEmail";
 import LoginPhone from "./screens2/LoginPhone";
 import SignUp from "./screens2/SignUp";
+import ForgotPassword from "./screens2/ForgotPassword";
+import EmailCheck from "./screens2/EmailCheck";
 
 const Stack = createStackNavigator();
 
@@ -51,13 +54,16 @@ const App = () => {
 
   return (
 		<NavigationContainer>
+			<StatusBar style="light" backgroundColor="#000" />
 			<Stack.Navigator
-				initialRouteName="SignUp"
+				initialRouteName="EmailCheck"
 				screenOptions={{ headerShown: false }}>
 				<Stack.Screen name="OnBoarding" component={OnBoarding} />
 				<Stack.Screen name="LoginPhone" component={LoginPhone} />
 				<Stack.Screen name="LoginEmail" component={LoginEmail} />
 				<Stack.Screen name="SignUp" component={SignUp} />
+				<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+				<Stack.Screen name="EmailCheck" component={EmailCheck} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

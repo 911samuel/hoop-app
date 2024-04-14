@@ -15,10 +15,11 @@ const InputBox = ({placeHolder="",...rest}:InputBoxProps)=>{
 const style = StyleSheet.create({
     input:{
         backgroundColor: '#fff',
-        width: '80%',
+        width: '90%',
         fontSize: 20,
         padding: 20,
         borderRadius: 10,
+        margin: 10,
         marginBottom: 20
     }
 })
