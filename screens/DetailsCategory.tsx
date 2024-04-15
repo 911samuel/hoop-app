@@ -3,7 +3,6 @@ import { View, StyleSheet, Image } from "react-native";
 
 import AppHeading from "../components/AppHeading";
 import Colors from "../config/Colors";
-import SearchButton from "../components/SearchButton";
 import ItemListComponent from "../components/ItemListComponent";
 import NotificationIcon from "../components/NotificationIcon";
 
@@ -14,7 +13,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 59.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 2,
@@ -22,7 +21,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 3,
@@ -30,7 +29,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 4,
@@ -38,7 +37,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 5,
@@ -46,11 +45,11 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
 ];
 
-const Explore = () => {
+const DetailsCategory = () => {
   return (
     <View style={styles.container}>
       <View style={styles.heading}>
@@ -136,4 +135,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Explore;
+export default DetailsCategory;

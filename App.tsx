@@ -11,6 +11,7 @@ import Explore from "./screens/Explore";
 import History from "./screens/History";
 import Profile from "./screens/Profile";
 import DetailsCategory from "./screens/DetailsCategory";
+import EditProfile from "./screens/EditProfile";
 
 const Stack = createStackNavigator();
 
@@ -57,6 +58,7 @@ const App = () => {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="History" component={History} />

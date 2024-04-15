@@ -14,7 +14,9 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 59.png"),
-    time: 7,
+    time: "4 hours",
+    location: "A-6",
+    date: "12 Aug",
   },
   {
     id: 2,
@@ -22,7 +24,9 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "4 hours",
+    date: "12 Aug",
+    location: "A-6",
   },
   {
     id: 3,
@@ -30,12 +34,14 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "4 hours",
+    location: "A-6",
+    date: "12 Aug",
   },
 ];
 
 const History = () => {
-  const sortedData = [...data].sort((a, b) => b.time - a.time);
+  const sortedData = [...data].sort((a, b) => b.id - a.id);
   const recentlyData = sortedData.slice(0, 2);
   const thisWeekData = sortedData.slice(0, 1);
 

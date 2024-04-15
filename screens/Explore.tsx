@@ -13,7 +13,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 59.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
   {
     id: 3,
@@ -29,7 +29,7 @@ const data = [
     subtitle: "123 Dhaka Street",
     price: 7,
     image: require("../assets/Rectangle 62.png"),
-    time: 7,
+    time: "7 min",
   },
 ];
 

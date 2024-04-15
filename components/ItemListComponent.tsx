@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import { SimpleLineIcons, MaterialIcons } from "@expo/vector-icons";
 
 import Colors from "../config/Colors";
 
@@ -7,9 +8,11 @@ interface Item {
   id: number;
   title: string;
   subtitle: string;
-  price: number;
+  price?: number;
   image: any;
-  time: number;
+  time?: string;
+  date?: string;
+  location?: string;
 }
 
 interface ItemListComponentProps {
@@ -29,13 +32,44 @@ const ItemListComponent = ({
           <Text style={styles.title}>{item.title}</Text>
           <Text style={styles.subtitle}>{item.subtitle}</Text>
         </View>
-        <View style={styles.priceContainer}>
-          <Text style={styles.price}>${item.price}/</Text>
-          <Text style={styles.priceHour}>hour</Text>
-        </View>
+        {item.date && item.time && (
+          <View style={styles.Container}>
+            <View style={styles.locationContainer}>
+              <SimpleLineIcons
+                name="location-pin"
+                size={14}
+                color={Colors.tomato}
+              />
+              <Text style={styles.location}>{item.location}</Text>
+            </View>
+            <View style={styles.timeContainer}>
+              <MaterialIcons
+                name="access-time"
+                size={14}
+                color={Colors.tomato}
+              />
+              <Text style={styles.timeText}>{item.time}</Text>
+            </View>
+          </View>
+        )}
+        {!item.date && (
+          <View style={styles.priceContainer}>
+            <Text style={styles.price}>${item.price}/</Text>
+            <Text style={styles.priceHour}>hour</Text>
+          </View>
+        )}
       </View>
-      <View style={styles.time}>
-        <Text style={styles.timeText}>{item.time} min</Text>
+      <View>
+        {item.date && (
+          <View style={styles.timeItem}>
+            <Text style={styles.dateItem}>{item.date}</Text>
+          </View>
+        )}
+        {!item.date && (
+          <View style={styles.time}>
+            <Text style={styles.date}>{item.time}</Text>
+          </View>
+        )}
       </View>
     </View>
   );
@@ -45,7 +79,7 @@ const ItemListComponent = ({
       data={data.slice(0, visibleItems)}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
-      contentContainerStyle={{ paddingBottom: 20 }} 
+      contentContainerStyle={{ paddingBottom: 20 }}
     />
   );
 };
@@ -56,7 +90,7 @@ const styles = StyleSheet.create({
     padding: 11,
     backgroundColor: Colors.primary,
     borderRadius: 15,
-    marginBottom: 20, 
+    marginBottom: 20,
   },
   image: {
     width: 98,
@@ -101,10 +135,54 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF3F3",
     borderRadius: 15,
   },
+  timeItem: {
+    width: 59,
+    height: 26,
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 15,
+  },
   timeText: {
     fontFamily: "Avenir-Book",
     fontSize: 12,
+    marginLeft: 5,
     color: Colors.tomato,
+  },
+  Container: {
+    flexDirection: "row",
+  },
+  date: {
+    fontFamily: "Avenir-Book",
+    fontSize: 12,
+    color: Colors.tomato,
+  },
+  dateItem: {
+    fontFamily: "Avenir-Book",
+    fontSize: 12,
+  },
+  location: {
+    color: "tomato",
+    fontSize: 12,
+    marginLeft: 5,
+  },
+  locationContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
+    width: 71,
+    height: 26,
+    borderRadius: 7,
+    backgroundColor: "#FFF3F3",
+  },
+  timeContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    width: 71,
+    height: 26,
+    borderRadius: 7,
+    backgroundColor: "#FFF3F3",
   },
 });
 
