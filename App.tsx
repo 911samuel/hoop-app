@@ -18,6 +18,7 @@ import RequestCode from "./screens2/RequestCode";
 import Upgrade from "./screens2/Upgrade";
 import ChoosePlan from "./screens2/ChoosePlan";
 import DetailHistory from "./screens2/DetailHistory";
+import Notifications from "./screens2/Notification";
 
 const Stack = createStackNavigator();
 
@@ -61,7 +62,7 @@ const App = () => {
 		<NavigationContainer>
 			<StatusBar style="light" backgroundColor="#000" />
 			<Stack.Navigator
-				initialRouteName="DetailHistory"
+				initialRouteName="Notification"
 				screenOptions={{ headerShown: false }}>
 				<Stack.Screen name="OnBoarding" component={OnBoarding} />
 				<Stack.Screen name="LoginPhone" component={LoginPhone} />
@@ -74,6 +75,7 @@ const App = () => {
 				<Stack.Screen name="Upgrade" component={Upgrade} />
 				<Stack.Screen name="ChoosePlan" component={ChoosePlan} />
 				<Stack.Screen name="DetailHistory" component={DetailHistory} />
+				<Stack.Screen name="Notification" component={Notifications} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

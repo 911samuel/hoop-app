@@ -10,13 +10,6 @@ function onPress(){
 
 }
 
-interface PlanProps{
-    active: boolean;
-    period: string;
-    description: string;
-    price: string;
-}
-
 const DetailHistory = () => {
 	return (
 		<ScrollView style={style.view}>
@@ -38,9 +31,27 @@ const DetailHistory = () => {
 				<Text style={[style.heading, { margin: 20 }]}>Graha Mall</Text>
 				<Text>123 Dhaka Street</Text>
 			</View>
+			<View style={style.details}>
+				<Text style={style.detail}>
+					<MaterialCommunityIcons
+						name="map-marker"
+						size={16}
+						style={style.icon}
+					/>
+					{"  "} A-6
+				</Text>
+				<Text style={style.detail}>
+					<MaterialCommunityIcons
+						name="clock-outline"
+						size={16}
+						style={style.icon}
+					/>
+					{"  "} 4 hours
+				</Text>
+			</View>
 			<View style={{ padding: 20, paddingHorizontal: 30 }}>
 				<Text style={[style.heading, { fontSize: 30 }]}>Information</Text>
-				<Text style={{fontSize: 20, color: Colors.neutral}}>
+				<Text style={{ fontSize: 20, color: Colors.neutral }}>
 					24/7 parking facility with cctv camera, professional security guard,
 					chair disble, floor parking list facilities. You will get hassle
 					parking facilities with 35% discount on first parking...
@@ -54,16 +65,33 @@ const DetailHistory = () => {
 };
 
 const style = StyleSheet.create({
-    icon2:{
-        color: Colors.neutral
-    },
+	details: {
+		display: "flex",
+		flexDirection: "row",
+		justifyContent: "space-around",
+		padding: 10,
+	},
+	detail: {
+		color: Colors.tomato,
+		fontSize: 17,
+		backgroundColor: "#fff3f3",
+		padding: 5,
+		paddingHorizontal: 10,
+		borderRadius: 10
+	},
+	icon: {
+		margin: 10,
+	},
+	icon2: {
+		color: Colors.neutral,
+	},
 	division: {
 		padding: 20,
 	},
-    image:{
-        alignItems: 'center',
-        paddingVertical: 30
-    },
+	image: {
+		alignItems: "center",
+		paddingVertical: 30,
+	},
 	header: {
 		flexDirection: "row",
 		alignItems: "center",
@@ -74,10 +102,10 @@ const style = StyleSheet.create({
 	},
 	heading2: {
 		fontSize: 39,
-        textAlign: 'center',
-        marginTop: 30,
-        paddingHorizontal: 40,
-        marginBottom: 40
+		textAlign: "center",
+		marginTop: 30,
+		paddingHorizontal: 40,
+		marginBottom: 40,
 	},
 	button: {
 		width: 44,
@@ -93,7 +121,7 @@ const style = StyleSheet.create({
 	},
 	view: {
 		paddingTop: 60,
-		backgroundColor: "#F4F4FA",
+		backgroundColor: "#F4F4Fc",
 	},
 	footer: {
 		marginTop: 30,
