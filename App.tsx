@@ -4,15 +4,21 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
+import { StatusBar } from "expo-status-bar";
 
-import Home from "./screens/Home";
-import Explore from "./screens/Explore";
-
-import History from "./screens/History";
-import Profile from "./screens/Profile";
-import DetailsCategory from "./screens/DetailsCategory";
-import EditProfile from "./screens/EditProfile";
-import ParkingRoute from "./screens/ParkingRoute";
+import FindParkingScreen from "./screens/FindParkingScreen";
+import OnBoarding from "./screens2/OnBoarding";
+import LoginEmail from "./screens2/LoginEmail";
+import LoginPhone from "./screens2/LoginPhone";
+import SignUp from "./screens2/SignUp";
+import ForgotPassword from "./screens2/ForgotPassword";
+import EmailCheck from "./screens2/EmailCheck";
+import OTP from "./screens2/OTP";
+import RequestCode from "./screens2/RequestCode";
+import Upgrade from "./screens2/Upgrade";
+import ChoosePlan from "./screens2/ChoosePlan";
+import DetailHistory from "./screens2/DetailHistory";
+import Notifications from "./screens2/Notification";
 
 const Stack = createStackNavigator();
 
@@ -53,22 +59,26 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Explore" component={Explore} />
-        <Stack.Screen name="History" component={History} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
-        <Stack.Screen name="EditProfile" component={EditProfile} />
-        <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+		<NavigationContainer>
+			<StatusBar style="light" backgroundColor="#000" />
+			<Stack.Navigator
+				initialRouteName="Notification"
+				screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="OnBoarding" component={OnBoarding} />
+				<Stack.Screen name="LoginPhone" component={LoginPhone} />
+				<Stack.Screen name="LoginEmail" component={LoginEmail} />
+				<Stack.Screen name="SignUp" component={SignUp} />
+				<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+				<Stack.Screen name="EmailCheck" component={EmailCheck} />
+				<Stack.Screen name="OTP" component={OTP} />
+				<Stack.Screen name="RequestCode" component={RequestCode} />
+				<Stack.Screen name="Upgrade" component={Upgrade} />
+				<Stack.Screen name="ChoosePlan" component={ChoosePlan} />
+				<Stack.Screen name="DetailHistory" component={DetailHistory} />
+				<Stack.Screen name="Notification" component={Notifications} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 };
 
 export default App;

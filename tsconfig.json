@@ -2,6 +2,7 @@
   "exclude": ["node_modules", ".git"],
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
+    "jsx": "react",
     "strict": true
   }
 }
