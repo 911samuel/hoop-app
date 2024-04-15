@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ViewComponent } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import AppHeading from "../components/AppHeading";
 
 import SearchButton from "../components/SearchButton";
@@ -29,7 +29,7 @@ const data = [
 
 const Home = () => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <View style={styles.headingContainer}>
         <View
           style={{
@@ -93,7 +93,7 @@ const Home = () => {
           <ItemListComponent data={data} />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

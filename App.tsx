@@ -12,6 +12,7 @@ import History from "./screens/History";
 import Profile from "./screens/Profile";
 import DetailsCategory from "./screens/DetailsCategory";
 import EditProfile from "./screens/EditProfile";
+import ParkingRoute from "./screens/ParkingRoute";
 
 const Stack = createStackNavigator();
 
@@ -58,12 +59,13 @@ const App = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="EditProfile" component={EditProfile} />
-        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="History" component={History} />
-        <Stack.Screen name="Explore" component={Explore} />
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Explore" component={Explore} />
+        <Stack.Screen name="History" component={History} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
       </Stack.Navigator>
     </NavigationContainer>
   );

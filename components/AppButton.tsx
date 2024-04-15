@@ -1,5 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "../config/Colors";
@@ -19,6 +25,7 @@ interface AppButtonProps {
   backgroundColor?: string;
   color?: string;
   iconName?: MaterialCommunityIconName;
+  width?: any;
 }
 
 function AppButton({
@@ -29,12 +36,14 @@ function AppButton({
   backgroundColor,
   color,
   iconName,
+  width = "100%",
 }: AppButtonProps) {
-  const buttonContainerStyle = {
+  const buttonContainerStyle: ViewStyle = {
+    ...styles.buttonContainer,
     marginBottom,
     marginTop,
+    width, 
     backgroundColor: backgroundColor || colors.primaryButton,
-    ...styles.buttonContainer,
   };
 
   const textStyle = {
@@ -60,7 +69,6 @@ function AppButton({
 const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
-    width: "100%",
     height: 60,
     borderRadius: 15,
     alignItems: "center",
