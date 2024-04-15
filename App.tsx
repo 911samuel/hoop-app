@@ -15,6 +15,7 @@ import ForgotPassword from "./screens2/ForgotPassword";
 import EmailCheck from "./screens2/EmailCheck";
 import OTP from "./screens2/OTP";
 import RequestCode from "./screens2/RequestCode";
+import Upgrade from "./screens2/Upgrade";
 
 const Stack = createStackNavigator();
 
@@ -58,7 +59,7 @@ const App = () => {
 		<NavigationContainer>
 			<StatusBar style="light" backgroundColor="#000" />
 			<Stack.Navigator
-				initialRouteName="RequestCode"
+				initialRouteName="Upgrade"
 				screenOptions={{ headerShown: false }}>
 				<Stack.Screen name="OnBoarding" component={OnBoarding} />
 				<Stack.Screen name="LoginPhone" component={LoginPhone} />
@@ -68,6 +69,7 @@ const App = () => {
 				<Stack.Screen name="EmailCheck" component={EmailCheck} />
 				<Stack.Screen name="OTP" component={OTP} />
 				<Stack.Screen name="RequestCode" component={RequestCode} />
+				<Stack.Screen name="Upgrade" component={Upgrade} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);
