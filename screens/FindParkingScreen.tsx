@@ -9,31 +9,24 @@ import colors from "../config/Colors";
 import SingUpText from "../components/SingUpText";
 import CirclesRow from "../components/CirclesRow";
 
-function WelcomeScreen() {
+function FindParkingScreen() {
   return (
     <View style={styles.container}>
       <SkipText />
       <AppImage image={require("../assets/car.png")} />
-      <AppHeading title="Welcome" />
+      <AppHeading title="Find Parking" />
       <AppHeading
-        title="Find a best possible way to park"
+        title="Find your perfect parking space wherever and whenever you need"
         fontSize={16}
-        color={colors.neutral}
-        paddingTop={0}
-        paddingBottom={54}
+        fontFamily="Avenir-Regular"
       />
       <CirclesRow />
-      <AppButton
-        title="Login with Email"
-        marginTop={50}
-        iconName="email"
-      ></AppButton>
+      <AppButton title="Login with Email" marginTop={50}></AppButton>
       <AppButton
         title="Login with Phone"
         backgroundColor={colors.primary}
         color={colors.black}
         marginTop={20}
-        iconName="phone"
       ></AppButton>
       <SingUpText />
     </View>
@@ -47,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WelcomeScreen;
+export default FindParkingScreen;

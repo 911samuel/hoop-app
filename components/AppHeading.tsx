@@ -5,16 +5,27 @@ import colors from "../config/Colors";
 
 interface AppHeadingProps {
   title: string;
-  fontSize?: number; 
-  color?: string; 
-  fontFamily?: string,
+  fontSize?: number;
+  color?: string;
+  fontFamily?: string;
+  paddingTop?: number;
+  paddingBottom?: number;
 }
 
-function AppHeading({ title, color, fontSize, fontFamily }: AppHeadingProps) {
+function AppHeading({
+  title,
+  color = colors.black,
+  fontSize = 24,
+  fontFamily = "Avenir-Book",
+  paddingBottom = 9,
+  paddingTop = 43,
+}: AppHeadingProps) {
   const dynamicStyles = {
-    fontSize: fontSize || 24,
-    color: color || colors.neutral,
-    fontFamily: fontFamily || "SpaceGrotesk-Medium",
+    fontSize,
+    color,
+    fontFamily,
+    paddingBottom,
+    paddingTop,
   };
 
   return <Text style={[styles.heroText, dynamicStyles]}>{title}</Text>;
@@ -22,8 +33,8 @@ function AppHeading({ title, color, fontSize, fontFamily }: AppHeadingProps) {
 
 const styles = StyleSheet.create({
   heroText: {
+    width: 289,
     textAlign: "center",
-    paddingTop: 43,
   },
 });
 

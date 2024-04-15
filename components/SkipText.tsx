@@ -8,8 +8,7 @@ function SkipText() {
 
 const styles = StyleSheet.create({
   skipText: {
-    fontFamily: "SpaceGrotesk-Regular",
-    fontWeight: "bold",
+    fontFamily: "Avenir-Regular",
     color: colors.neutral,
     marginTop: 60,
     marginLeft: 300,

@@ -1,15 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons"; 
 
 import colors from "../config/Colors";
+
+type MaterialCommunityIconName =
+  | "email"
+  | "phone"
+  | undefined;
 
 interface AppButtonProps {
   title: string;
   onPress?: () => void;
   marginTop?: number;
   marginBottom?: number;
-    backgroundColor?: string;
-    color?: string,
+  backgroundColor?: string;
+  color?: string;
+  iconName?: MaterialCommunityIconName;
 }
 
 function AppButton({
@@ -17,30 +24,40 @@ function AppButton({
   onPress,
   marginTop = 0,
   marginBottom = 0,
-    backgroundColor,
+  backgroundColor,
   color,
+  iconName, 
 }: AppButtonProps) {
   const buttonContainerStyle = {
     marginBottom,
-      marginTop,
+    marginTop,
     backgroundColor: backgroundColor || colors.primaryButton,
     ...styles.buttonContainer,
   };
-    
-    const text = {
-        color: color || colors.primary,
-        ...styles.buttonText,
-    };
+
+  const textStyle = {
+    color: color || colors.primary,
+    ...styles.buttonText,
+  };
 
   return (
     <TouchableOpacity onPress={onPress} style={buttonContainerStyle}>
-      <Text style={text}>{title}</Text>
+      {iconName && (
+        <MaterialCommunityIcons
+          name={iconName}
+          size={24}
+          color={textStyle.color}
+          style={styles.icon}
+        />
+      )}
+      <Text style={textStyle}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
+    flexDirection: "row",
     width: 311,
     height: 60,
     borderRadius: 15,
@@ -48,9 +65,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   buttonText: {
-    fontFamily: "SpaceGrotesk_500Medium",
+    fontFamily: "Avenir-Regular",
     fontSize: 18,
     textAlign: "center",
+  },
+  icon: {
+    marginRight: 12,
   },
 });
 
