@@ -9,54 +9,62 @@ import {
 	TouchableOpacity,
     Button,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import AppButton from "../components/AppButton";
 import InputBox from "../components/InputBox";
 
 
 const { width, height } = Dimensions.get("window");
 
-const Login = () => {
-	//
-};
-
-
 const SignUp = () => {
+	const navigation = useNavigation();
+
+  const login = () => {
+    navigation.navigate("OnBoarding" as never);
+  };
 
 	return (
-		<ScrollView
-			style={style.view}
-			contentContainerStyle={{ flex: 1, alignContent: "center" }}>
-			<Image source={require("./assets/lines.png")} style={style.img} />
-			<Text style={style.title}>Let's Start!!</Text>
-			<View style={style.main}>
-				<View style={style.form}>
-					<InputBox inputMode="email" placeHolder="Email" />
-					<InputBox placeHolder="Password" secureTextEntry={true} />
-					<InputBox
-						placeHolder="Password Authentication"
-						secureTextEntry={true}
-					/>
-					<InputBox inputMode="tel" placeHolder="Phone Number" />
-				</View>
-				<View>
-					<AppButton title="Register" backgroundColor="#130F26" />
-				</View>
-				<View style={[style.forgot, style.forgot2]}>
-					<Text>Have an account? {"    "}</Text>
-					<TouchableOpacity onPress={Login}>
-						<Text style={{ color: "red", fontSize: 15 }}>Sign In</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		</ScrollView>
-	);
+    <ScrollView
+      style={style.view}
+      contentContainerStyle={{ flex: 1, alignContent: "center" }}
+    >
+      <Image source={require("./assets/lines.png")} style={style.img} />
+      <Text style={style.title}>Let's Start!!</Text>
+      <View style={style.main}>
+        <View style={style.form}>
+          <InputBox inputMode="email" placeHolder="Email" />
+          <InputBox placeHolder="Password" secureTextEntry={true} />
+          <InputBox
+            placeHolder="Password Authentication"
+            secureTextEntry={true}
+          />
+          <InputBox inputMode="tel" placeHolder="Phone Number" />
+        </View>
+        <View>
+          <AppButton
+            title="Register"
+            backgroundColor="#130F26"
+            width={311}
+            onPress={login}
+          />
+        </View>
+        <View style={[style.forgot, style.forgot2]}>
+          <Text>Have an account? {"    "}</Text>
+          <TouchableOpacity onPress={login}>
+            <Text style={{ color: "red", fontSize: 15 }}>Sign In</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ScrollView>
+  );
 };
 
 const style = StyleSheet.create({
 	form: {
 		width: "100%",
 		alignItems: "center",
-        minHeight: 500
+        minHeight: 450
 	},
 	forgot: {
 		alignItems: "center",
@@ -92,10 +100,8 @@ const style = StyleSheet.create({
 		left: 0,
 	},
 	view: {
-		paddingTop: 50,
 		backgroundColor: "#130F26",
 		position: "relative",
-		height: height,
 	},
 });
 

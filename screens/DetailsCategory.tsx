@@ -5,6 +5,7 @@ import AppHeading from "../components/AppHeading";
 import Colors from "../config/Colors";
 import ItemListComponent from "../components/ItemListComponent";
 import NotificationIcon from "../components/NotificationIcon";
+import { useNavigation } from "@react-navigation/native";
 
 const data = [
   {
@@ -50,6 +51,11 @@ const data = [
 ];
 
 const DetailsCategory = () => {
+  const navigation = useNavigation();
+
+  const handleBack = () => {
+    navigation.goBack();
+  };
   return (
     <View style={styles.container}>
       <View style={styles.heading}>
@@ -59,6 +65,7 @@ const DetailsCategory = () => {
           color={Colors.thirdText}
           width={55}
           height={55}
+          onPress={handleBack}
         />
         <AppHeading
           title="Detail Category"
@@ -71,6 +78,7 @@ const DetailsCategory = () => {
           color={Colors.thirdText}
           width={55}
           height={55}
+          onPress={handleBack}
         />
       </View>
       <View style={styles.nearest}>

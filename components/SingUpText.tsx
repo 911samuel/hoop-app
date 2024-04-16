@@ -1,20 +1,17 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
 import colors from "../config/Colors";
 
-function SignUpText() {
-  const navigation = useNavigation();
+interface Props {
+  onPress: () => void;
+}
 
-  const handleSignUpPress = () => {
-    navigation.navigate("FindParking" as never); 
-  };
-
+function SignUpText({ onPress }: Props) {
   return (
     <Text style={styles.signUpText}>
-      Don’t have an account?{"       "}
-      <TouchableOpacity onPress={handleSignUpPress}>
+      Don’t have an account?{"   "}
+      <TouchableOpacity onPress={onPress}>
         <Text style={{ color: colors.tomato }}>Sign Up</Text>
       </TouchableOpacity>
     </Text>
@@ -23,12 +20,9 @@ function SignUpText() {
 
 const styles = StyleSheet.create({
   signUpText: {
-    fontSize: 20,
+    fontSize: 16,
     color: colors.black,
-    marginTop: 0,
-    padding: 10,
-    justifyContent: 'center',
-    alignItems: 'center'
+    marginTop: 20,
   },
 });
 

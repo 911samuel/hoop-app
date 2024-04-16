@@ -7,6 +7,7 @@ import Colors from "../config/Colors";
 import NotificationIcon from "../components/NotificationIcon";
 import CategoriesCard from "../components/CategoriesCard";
 import ItemListComponent from "../components/ItemListComponent";
+import { useNavigation } from "@react-navigation/native";
 
 const data = [
   {
@@ -28,8 +29,16 @@ const data = [
 ];
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  const handleNotification = () => {
+    navigation.navigate("Notification" as never);
+  };
+  const handleItem = () => {
+    navigation.navigate("DetailsCategory" as never);
+  };
   return (
-    <TouchableOpacity style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.headingContainer}>
         <View
           style={{
@@ -59,6 +68,7 @@ const Home = () => {
           <NotificationIcon
             materialIconName="notifications-none"
             color={Colors.searchIcon}
+            onPress={handleNotification}
           />
         </View>
         <SearchButton />
@@ -90,10 +100,10 @@ const Home = () => {
           paddingBottom={17}
         />
         <View>
-          <ItemListComponent data={data} />
+          <ItemListComponent data={data} onPress={handleItem} />
         </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 };
 

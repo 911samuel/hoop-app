@@ -10,50 +10,61 @@ import {
 } from "react-native";
 import AppButton from "../components/AppButton";
 import InputBox from "../components/InputBox";
+import SingUpText from "../components/SingUpText";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const forgotPassword = () => {
-	//
-};
-
 const LoginPhone = () => {
+	const navigation = useNavigation();
+
+  const handleLogin = () => {
+    navigation.navigate("OTP" as never);
+  };
+
+  const forgot = () => {
+    navigation.navigate("OTP" as never);
+  };
+  const handleSignUpPress = () => {
+    navigation.navigate("SignUp" as never);
+  };
 	return (
-		<ScrollView
-			style={style.view}
-			contentContainerStyle={{ flex: 1, alignContent: "center" }}>
-			<Image source={require("./assets/lines.png")} style={style.img} />
-			<Text style={style.title}>Glad to see you!!</Text>
-			<View style={style.main}>
-				<View style={style.form}>
-					<InputBox inputMode='tel' placeHolder="+62 |" />
-					<InputBox placeHolder="Password" secureTextEntry={true} />
-					<View style={style.forgot}>
-						<Text>Forgot password? {"    "}</Text>
-						<TouchableOpacity onPress={forgotPassword}>
-							<Text style={{ color: "red", fontSize: 15 }}>Retrieve</Text>
-						</TouchableOpacity>
-					</View>
-				</View>
-				<View>
-					<AppButton title="Login" backgroundColor="#130F26" />
-				</View>
-				<View style={[style.forgot, style.forgot2]}>
-					<Text>Don't have an account? {"    "}</Text>
-					<TouchableOpacity onPress={forgotPassword}>
-						<Text style={{ color: "red", fontSize: 15 }}>Sign Up</Text>
-					</TouchableOpacity>
-				</View>
-			</View>
-		</ScrollView>
-	);
+    <ScrollView
+      style={style.view}
+      contentContainerStyle={{ flex: 1, alignContent: "center" }}
+    >
+      <Image source={require("./assets/lines.png")} style={style.img} />
+      <Text style={style.title}>Glad to see you!!</Text>
+      <View style={style.main}>
+        <View style={style.form}>
+          <InputBox inputMode="tel" placeHolder="+62 |" />
+          <InputBox placeHolder="Password" secureTextEntry={true} />
+          <View style={style.forgot}>
+            <Text>Forgot password? {"    "}</Text>
+            <TouchableOpacity onPress={forgot}>
+              <Text style={{ color: "red", fontSize: 15 }}>Retrieve</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View>
+          <AppButton
+            title="Login"
+            backgroundColor="#130F26"
+            width={311}
+            onPress={handleLogin}
+          />
+        </View>
+        <SingUpText onPress={handleSignUpPress} />
+      </View>
+    </ScrollView>
+  );
 };
 
 const style = StyleSheet.create({
 	form: {
 		width: "100%",
 		alignItems: "center",
-        minHeight: 500
+        minHeight: 450
 	},
 	forgot: {
 		alignItems: "center",
@@ -70,7 +81,7 @@ const style = StyleSheet.create({
 		backgroundColor: "#F4F4FA",
 		height: height,
 		borderRadius: 40,
-		marginTop: 80,
+		marginTop: 50,
 		paddingTop: 30,
 		alignItems: "center",
 	},
@@ -89,7 +100,6 @@ const style = StyleSheet.create({
 		left: 0,
 	},
 	view: {
-		paddingTop: 50,
 		backgroundColor: "#130F26",
 		position: "relative",
 		height: height,

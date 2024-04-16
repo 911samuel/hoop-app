@@ -6,19 +6,25 @@ import * as Font from "expo-font";
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 
-import FindParkingScreen from "./screens/";
-import OnBoarding from "./screens2/OnBoarding";
-import LoginEmail from "./screens2/LoginEmail";
-import LoginPhone from "./screens2/LoginPhone";
-import SignUp from "./screens2/SignUp";
-import ForgotPassword from "./screens2/ForgotPassword";
-import EmailCheck from "./screens2/EmailCheck";
-import OTP from "./screens2/OTP";
-import RequestCode from "./screens2/RequestCode";
-import Upgrade from "./screens2/Upgrade";
-import ChoosePlan from "./screens2/ChoosePlan";
-import DetailHistory from "./screens2/DetailHistory";
-import Notifications from "./screens2/Notification";
+import OnBoarding from "./screens/OnBoarding";
+import LoginEmail from "./screens/LoginEmail";
+import LoginPhone from "./screens/LoginPhone";
+import SignUp from "./screens/SignUp";
+import ForgotPassword from "./screens/ForgotPassword";
+import EmailCheck from "./screens/EmailCheck";
+import OTP from "./screens/OTP";
+import RequestCode from "./screens/RequestCode";
+import Upgrade from "./screens/Upgrade";
+import ChoosePlan from "./screens/ChoosePlan";
+import DetailHistory from "./screens/DetailHistory";
+import Notifications from "./screens/Notification";
+import DetailsCategory from "./screens/DetailsCategory";
+import EditProfile from "./screens/EditProfile";
+import Explore from "./screens/Explore";
+import Home from "./screens/Home";
+import ParkingRoute from "./screens/ParkingRoute";
+import Profile from "./screens/Profile";
+import History from "./screens/History";
 
 const Stack = createStackNavigator();
 
@@ -62,7 +68,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="Notification"
+        initialRouteName="OnBoarding"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 
 import Colors from "../config/Colors";
@@ -14,6 +14,7 @@ interface NotificationIconProps {
   color?: string;
   width?: number;
   height?: number;
+  onPress: () => void;
 }
 
 const NotificationIcon = ({
@@ -23,9 +24,13 @@ const NotificationIcon = ({
   color,
   width = 44,
   height = 44,
+  onPress,
 }: NotificationIconProps) => {
   return (
-    <View style={[styles.container, { backgroundColor, width, height }]}>
+    <TouchableOpacity
+      style={[styles.container, { backgroundColor, width, height }]}
+      onPress={onPress}
+    >
       {antDesignIconName && (
         <AntDesign
           name={antDesignIconName}
@@ -40,7 +45,7 @@ const NotificationIcon = ({
           size={24}
         />
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -50,8 +55,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  notification: {
-  },
+  notification: {},
 });
 
 export default NotificationIcon;

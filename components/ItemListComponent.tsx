@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, FlatList, Image, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { SimpleLineIcons, MaterialIcons } from "@expo/vector-icons";
 
 import Colors from "../config/Colors";
@@ -18,14 +25,16 @@ interface Item {
 interface ItemListComponentProps {
   data: Item[];
   visibleItems?: number;
+  onPress: () => void;
 }
 
 const ItemListComponent = ({
   data,
   visibleItems = Infinity,
+  onPress
 }: ItemListComponentProps) => {
   const renderItem = ({ item }: { item: Item }) => (
-    <View style={styles.item}>
+    <TouchableOpacity onPress={onPress} style={styles.item}>
       <Image source={item.image} style={styles.image} />
       <View style={styles.textContainer}>
         <View>
@@ -71,7 +80,7 @@ const ItemListComponent = ({
           </View>
         )}
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (

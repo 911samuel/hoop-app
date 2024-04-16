@@ -3,6 +3,7 @@ import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Image
 import AppButton from '../components/AppButton';
 import Colors from '../config/Colors';
 import { MaterialCommunityIcons } from "@expo/vector-icons"; 
+import { useNavigation } from '@react-navigation/native';
 
 const { width, height } = Dimensions.get("window");
 
@@ -14,7 +15,7 @@ interface NotificationProps{
     active: boolean
 }
 
-function Notification({active=false}:NotificationProps){
+function Notification({ active = false }: NotificationProps) {
     return (
         <View style={notif.notif}>
             <View style={[notif.inner, active ? notif.active : notif.inner]}>
@@ -70,35 +71,40 @@ const notif = StyleSheet.create({
 })
 
 const Notifications = () => {
+    const navigation = useNavigation();
+
+    const handleBack = () => {
+      navigation.goBack();
+    };
 	return (
-		<ScrollView style={style.view}>
-			<View style={[style.division, style.header]}>
-				<TouchableOpacity onPress={onPress} style={style.button}>
-					{true && (
-						<MaterialCommunityIcons
-							name="chevron-left"
-							size={40}
-							style={style.icon2}
-						/>
-					)}
-				</TouchableOpacity>
-				<Text style={style.heading}>Notification</Text>
-				<Text></Text>
-			</View>
-			<View style={style.division}>
-				<Text style={[style.heading]}>Today</Text>
+    <ScrollView style={style.view}>
+      <View style={[style.division, style.header]}>
+        <TouchableOpacity onPress={handleBack} style={style.button}>
+          {true && (
+            <MaterialCommunityIcons
+              name="chevron-left"
+              size={40}
+              style={style.icon2}
+            />
+          )}
+        </TouchableOpacity>
+        <Text style={style.heading}>Notification</Text>
+        <Text></Text>
+      </View>
+      <View style={style.division}>
+        <Text style={[style.heading]}>Today</Text>
 
-				<Notification active={true} />
-				<Notification active={true} />
-				<Notification active={false} />
+        <Notification active={true} />
+        <Notification active={true} />
+        <Notification active={false} />
 
-				<Text style={[style.heading]}>June 12, 2021</Text>
+        <Text style={[style.heading]}>June 12, 2021</Text>
 
-				<Notification active={false} />
-				<Notification active={true} />
-			</View>
-		</ScrollView>
-	);
+        <Notification active={false} />
+        <Notification active={true} />
+      </View>
+    </ScrollView>
+  );
 };
 
 const style = StyleSheet.create({

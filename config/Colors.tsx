@@ -12,6 +12,7 @@ const Colors = {
   thirdBackground: "#F4F4FA",
   black: "#1d1c1b",
   tomato: "#F43939",
+  navy: "#130F26",
 };
 
 export default Colors;
