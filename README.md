@@ -51,10 +51,6 @@ To run the service, start the Expo development server:
 
 Follow the Expo CLI instructions to open the app on your device or emulator.
 
-### Microservices
-
-If the project uses microservices, list them out here.
-
 ## Testing
 
 To run the tests, follow these steps:
@@ -78,8 +74,13 @@ To deploy the code, follow these steps:
 2. Push your changes to the deployment branch (e.g., `main`).
 3. Deploy the code using your chosen deployment platform.
 
+
+## Screenshots
+
+![Screenshot 1](../hoop-app/assets/welcome.jpeg)
+![Screenshot 2](../hoop-app/assets/parking.jpeg)
+
 ## Collaborators
 
 - [Samuel Abayizera](https://github.com/911samuel)
 - [Kibongo Simon Peter](https://github.com/kibongos40)
-```
