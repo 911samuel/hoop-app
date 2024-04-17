@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet, ImageBackground, Image } from "react-native";
+import AppRoute from "../components/AppRoute";
 
 const ParkingRoute = () => {
   return (
@@ -7,6 +8,7 @@ const ParkingRoute = () => {
       source={require("../assets/image 18.png")}
       style={styles.background}
     >
+      <AppRoute />
       <View style={styles.container}>
         <Image
           source={require("../assets/Group 247.png")}
