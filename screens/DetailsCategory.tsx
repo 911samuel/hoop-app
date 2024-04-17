@@ -56,6 +56,9 @@ const DetailsCategory = () => {
   const handleBack = () => {
     navigation.goBack();
   };
+  const handleItem = () => {
+    navigation.navigate("DetailHistory" as never);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.heading}>
@@ -91,7 +94,7 @@ const DetailsCategory = () => {
         />
       </View>
       <View style={styles.categories}>
-        <ItemListComponent data={data} />
+        <ItemListComponent data={data} onPress={handleItem} />
       </View>
       <Image
         source={require("../assets/location.png")}

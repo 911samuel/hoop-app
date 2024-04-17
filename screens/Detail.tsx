@@ -1,18 +1,22 @@
-import React from 'react'
-import { ScrollView, StyleSheet, Text, View, TouchableOpacity, Dimensions, Image } from 'react-native';
-import AppButton from '../components/AppButton';
-import Colors from '../config/Colors';
-import { MaterialCommunityIcons } from "@expo/vector-icons"; 
-import { useNavigation } from '@react-navigation/native';
+import React from "react";
+import {
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Dimensions,
+  Image,
+} from "react-native";
+import AppButton from "../components/AppButton";
+import Colors from "../config/Colors";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-function onPress(){
-
-}
-
 const DetailHistory = () => {
-	const navigation = useNavigation();
+  const navigation = useNavigation();
 
   const handleBack = () => {
     navigation.goBack();
@@ -20,7 +24,7 @@ const DetailHistory = () => {
   const handleItem = () => {
     navigation.navigate("DetailHistory" as never);
   };
-	return (
+  return (
     <ScrollView style={style.view}>
       <View style={[style.division, style.header]}>
         <TouchableOpacity onPress={handleBack} style={style.button}>
@@ -32,7 +36,7 @@ const DetailHistory = () => {
             />
           )}
         </TouchableOpacity>
-        <Text style={style.heading}>Detail History</Text>
+        <Text style={style.heading}>Detail</Text>
         <Text></Text>
       </View>
       <View style={style.image}>
@@ -67,73 +71,79 @@ const DetailHistory = () => {
         </Text>
       </View>
       <View style={[style.division, style.footer]}>
-        <AppButton backgroundColor={Colors.navy} title="Repeat Booking" />
+        <AppButton
+          backgroundColor={Colors.navy}
+          title="Book Now"
+          width={197}
+          onPress={handleItem}
+        />
       </View>
     </ScrollView>
   );
 };
 
 const style = StyleSheet.create({
-	details: {
-		display: "flex",
-		flexDirection: "row",
-		justifyContent: "space-around",
-		padding: 10,
-	},
-	detail: {
-		color: Colors.tomato,
-		fontSize: 17,
-		backgroundColor: "#fff3f3",
-		padding: 5,
-		paddingHorizontal: 10,
-		borderRadius: 10
-	},
-	icon: {
-		margin: 10,
-	},
-	icon2: {
-		color: Colors.neutral,
-	},
-	division: {
-		padding: 20,
-	},
-	image: {
-		alignItems: "center",	},
-	header: {
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "space-between",
-	},
-	heading: {
-		fontSize: 26,
-	},
-	heading2: {
-		fontSize: 20,
-		textAlign: "center",
-		marginTop: 0,
-		paddingHorizontal: 40,
-		marginBottom: 10,
-	},
-	button: {
-		width: 44,
-		height: 44,
-		alignItems: "center",
-		justifyContent: "center",
-		backgroundColor: "#ccc",
-		borderRadius: 10,
-	},
-	text: {
-		fontSize: 14,
-		color: "#2D2D2D",
-	},
-	view: {
-		paddingTop: 60,
-		backgroundColor: "#F4F4Fc",
-	},
-	footer: {
-		marginTop: 0,
-		alignItems: "center",
-	},
+  details: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10,
+  },
+  detail: {
+    color: Colors.tomato,
+    fontSize: 17,
+    backgroundColor: "#fff3f3",
+    padding: 5,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+  },
+  icon: {
+    margin: 10,
+  },
+  icon2: {
+    color: Colors.neutral,
+  },
+  division: {
+    padding: 20,
+  },
+  image: {
+    alignItems: "center",
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  heading: {
+    fontSize: 26,
+  },
+  heading2: {
+    fontSize: 20,
+    textAlign: "center",
+    marginTop: 0,
+    paddingHorizontal: 40,
+    marginBottom: 10,
+  },
+  button: {
+    width: 44,
+    height: 44,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#ccc",
+    borderRadius: 10,
+  },
+  text: {
+    fontSize: 14,
+    color: "#2D2D2D",
+  },
+  view: {
+    paddingTop: 60,
+    backgroundColor: "#F4F4Fc",
+  },
+  footer: {
+    marginTop: 0,
+    alignItems: "center",
+  },
 });
 
 export default DetailHistory;

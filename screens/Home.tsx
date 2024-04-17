@@ -35,7 +35,7 @@ const Home = () => {
     navigation.navigate("Notification" as never);
   };
   const handleItem = () => {
-    navigation.navigate("DetailsCategory" as never);
+    navigation.navigate("Detail" as never);
   };
   return (
     <View style={styles.container}>

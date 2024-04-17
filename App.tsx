@@ -25,6 +25,7 @@ import Home from "./screens/Home";
 import ParkingRoute from "./screens/ParkingRoute";
 import Profile from "./screens/Profile";
 import History from "./screens/History";
+import Detail from "./screens/Detail";
 
 const Stack = createStackNavigator();
 
@@ -90,6 +91,7 @@ const App = () => {
         <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
