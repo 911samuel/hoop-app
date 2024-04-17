@@ -1,6 +1,7 @@
 ## Hoop Mobile App Frontend 
 
-[![CodeClimate Badge](link-to-codeclimate-badge)](link-to-codeclimate) [![Testing Badge](link-to-testing-badge)](link-to-testing)
+[![Icon](https://camo.githubusercontent.com/27bb298ff308adf97c6f266d92eb0ed9a897bace3c20af5226369085c3a527cc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6578706f2d3143314532343f7374796c653d666f722d7468652d6261646765266c6f676f3d6578706f266c6f676f436f6c6f723d23443034413337)](https://camo.githu
+
 
 Hoop Mobile App Frontend is a high-quality parking booking mobile app design built using React Native and Expo. This project aims to provide a seamless and user-friendly experience for booking parking spaces via a mobile application.
 
