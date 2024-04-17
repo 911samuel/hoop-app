@@ -77,8 +77,10 @@ To deploy the code, follow these steps:
 
 ## Screenshots
 
-![Screenshot 1](../hoop-app/assets/welcome.jpeg)
-![Screenshot 2](../hoop-app/assets/parking.jpeg)
+<div style="display: flex; flex-direction: row;">
+  <img src="./assets/welcome.jpeg" alt="Screenshot 1" style="width: 30%;">
+  <img src="./assets/parking.jpeg" alt="Screenshot 2" style="width: 30%;">
+</div>
 
 ## Collaborators
 
