@@ -28,6 +28,13 @@ const data = [
   },
 ];
 
+const categoryCards = [
+  { title: "Car", photo: require("../assets/carOg.png") },
+  { title: "Bike", photo: require("../assets/bike.png") },
+  { title: "Bus", photo: require("../assets/bus.png") },
+  { title: "Van", photo: require("../assets/van.png") }
+];
+
 const Home = () => {
   const navigation = useNavigation();
 
@@ -36,6 +43,9 @@ const Home = () => {
   };
   const handleItem = () => {
     navigation.navigate("Detail" as never);
+  };
+  const handleCategory = () => {
+    navigation.navigate("DetailsCategory" as never);
   };
   return (
     <View style={styles.container}>
@@ -88,10 +98,10 @@ const Home = () => {
             paddingBottom: 50,
           }}
         >
-          <CategoriesCard photo={require("../assets/carOg.png")} />
-          <CategoriesCard photo={require("../assets/bike.png")} />
-          <CategoriesCard photo={require("../assets/bus.png")} />
-          <CategoriesCard photo={require("../assets/van.png")} />
+          <CategoriesCard title="Car" photo={require("../assets/carOg.png")} onPress={handleCategory}/>
+          <CategoriesCard title="Bike" photo={require("../assets/bike.png")} onPress={handleCategory}/>
+          <CategoriesCard title="Bus" photo={require("../assets/bus.png")} onPress={handleCategory}/>
+          <CategoriesCard title="Van" photo={require("../assets/van.png")} onPress={handleCategory}/>
         </View>
         <AppHeading
           title="Nearst Parking Spaces"

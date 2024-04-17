@@ -1,17 +1,19 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import Colors from "../config/Colors";
 
 interface CategoriesCardProps {
   photo: any;
+  title: string;
+  onPress?: () => void;
 }
 
-const CategoriesCard = ({ photo }: CategoriesCardProps) => {
+const CategoriesCard = ({ photo, title, onPress }: CategoriesCardProps) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={photo} style={styles.image} />
-      <Text style={styles.title}>Car</Text>
-    </View>
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 
