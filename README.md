@@ -51,10 +51,6 @@ To run the service, start the Expo development server:
 
 Follow the Expo CLI instructions to open the app on your device or emulator.
 
-### Microservices
-
-If the project uses microservices, list them out here.
-
 ## Testing
 
 To run the tests, follow these steps:
@@ -82,4 +78,3 @@ To deploy the code, follow these steps:
 
 - [Samuel Abayizera](https://github.com/911samuel)
 - [Kibongo Simon Peter](https://github.com/kibongos40)
-```
