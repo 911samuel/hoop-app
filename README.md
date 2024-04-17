@@ -77,8 +77,8 @@ To deploy the code, follow these steps:
 
 ## Screenshots
 
-![Screenshot 1](../hoop-app/assets/welcome.jpeg)
-![Screenshot 2](../hoop-app/assets/parking.jpeg)
+![Screenshot 1](./assets/welcome.jpeg)
+![Screenshot 2](./assets/parking.jpeg)
 
 ## Collaborators
 
