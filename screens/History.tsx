@@ -6,6 +6,7 @@ import Colors from "../config/Colors";
 import SearchButton from "../components/SearchButton";
 import ItemListComponent from "../components/ItemListComponent";
 import NotificationIcon from "../components/NotificationIcon";
+import { useNavigation } from "@react-navigation/native";
 
 const data = [
   {
@@ -44,6 +45,13 @@ const History = () => {
   const sortedData = [...data].sort((a, b) => b.id - a.id);
   const recentlyData = sortedData.slice(0, 2);
   const thisWeekData = sortedData.slice(0, 1);
+  const navigation = useNavigation();
+  const handleItem = () => {
+    navigation.navigate("Detail" as never);
+  };
+  const handleFilter = () => {
+    navigation.navigate("Expolore" as never);
+  };
 
   return (
     <View style={styles.container}>
@@ -65,6 +73,7 @@ const History = () => {
           color={Colors.thirdText}
           width={55}
           height={55}
+          onPress={handleFilter}
         />
       </View>
       <AppHeading
@@ -74,7 +83,7 @@ const History = () => {
         textAlign="left"
         fontSize={20}
       />
-      <ItemListComponent data={recentlyData} />
+      <ItemListComponent data={recentlyData} onPress={handleItem} />
       <AppHeading
         title="This Week"
         paddingBottom={21}
@@ -82,7 +91,7 @@ const History = () => {
         fontSize={20}
         paddingTop={10}
       />
-      <ItemListComponent data={thisWeekData} />
+      <ItemListComponent data={thisWeekData} onPress={handleItem} />
     </View>
   );
 };
