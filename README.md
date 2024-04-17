@@ -78,8 +78,8 @@ To deploy the code, follow these steps:
 ## Screenshots
 
 <div style="display: flex; flex-direction: row;">
-  <img src="./assets/welcome.jpeg" alt="Screenshot 1" style="width: 50%;">
-  <img src="./assets/parking.jpeg" alt="Screenshot 2" style="width: 50%;">
+  <img src="./assets/welcome.jpeg" alt="Screenshot 1" style="width: 30%;">
+  <img src="./assets/parking.jpeg" alt="Screenshot 2" style="width: 30%;">
 </div>
 
 ## Collaborators
