@@ -27,6 +27,8 @@ import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
 
+import ShowMaps from "./screens/ShowMaps";
+
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -66,35 +68,35 @@ const App = () => {
   }
 
   return (
-    <NavigationContainer>
-      <StatusBar style="light" backgroundColor="#000" />
-      <Stack.Navigator
-        initialRouteName="OnBoarding"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="OnBoarding" component={OnBoarding} />
-        <Stack.Screen name="LoginPhone" component={LoginPhone} />
-        <Stack.Screen name="LoginEmail" component={LoginEmail} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-        <Stack.Screen name="EmailCheck" component={EmailCheck} />
-        <Stack.Screen name="OTP" component={OTP} />
-        <Stack.Screen name="RequestCode" component={RequestCode} />
-        <Stack.Screen name="Upgrade" component={Upgrade} />
-        <Stack.Screen name="ChoosePlan" component={ChoosePlan} />
-        <Stack.Screen name="DetailHistory" component={DetailHistory} />
-        <Stack.Screen name="Notification" component={Notifications} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Explore" component={Explore} />
-        <Stack.Screen name="History" component={History} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
-        <Stack.Screen name="EditProfile" component={EditProfile} />
-        <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
-        <Stack.Screen name="Detail" component={Detail} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+		<NavigationContainer>
+			<StatusBar style="light" backgroundColor="#000" />
+			<Stack.Navigator
+				initialRouteName="ShowMaps"
+				screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="OnBoarding" component={OnBoarding} />
+				<Stack.Screen name="LoginPhone" component={LoginPhone} />
+				<Stack.Screen name="LoginEmail" component={LoginEmail} />
+				<Stack.Screen name="SignUp" component={SignUp} />
+				<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+				<Stack.Screen name="EmailCheck" component={EmailCheck} />
+				<Stack.Screen name="OTP" component={OTP} />
+				<Stack.Screen name="RequestCode" component={RequestCode} />
+				<Stack.Screen name="Upgrade" component={Upgrade} />
+				<Stack.Screen name="ChoosePlan" component={ChoosePlan} />
+				<Stack.Screen name="DetailHistory" component={DetailHistory} />
+				<Stack.Screen name="Notification" component={Notifications} />
+				<Stack.Screen name="Home" component={Home} />
+				<Stack.Screen name="Explore" component={Explore} />
+				<Stack.Screen name="History" component={History} />
+				<Stack.Screen name="Profile" component={Profile} />
+				<Stack.Screen name="DetailsCategory" component={DetailsCategory} />
+				<Stack.Screen name="EditProfile" component={EditProfile} />
+				<Stack.Screen name="ParkingRoute" component={ParkingRoute} />
+				<Stack.Screen name="Detail" component={Detail} />
+				<Stack.Screen name="ShowMaps" component={ShowMaps} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 };
 
 export default App;
