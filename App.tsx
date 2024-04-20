@@ -26,6 +26,7 @@ import ParkingRoute from "./screens/ParkingRoute";
 import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
+import PaymentSuccess from "./screens/PaymentSuccess";
 
 const Stack = createStackNavigator();
 
@@ -92,6 +93,7 @@ const App = () => {
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
       </Stack.Navigator>
     </NavigationContainer>
   );
