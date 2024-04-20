@@ -70,7 +70,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="PaymentSuccess"
+        initialRouteName="ParkingRoute"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
