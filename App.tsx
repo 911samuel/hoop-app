@@ -26,6 +26,7 @@ import ParkingRoute from "./screens/ParkingRoute";
 import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
+import BookDetail from "./screens/BookDetail";
 
 const Stack = createStackNavigator();
 
@@ -69,7 +70,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="OnBoarding"
+        initialRouteName="BookDetail"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
@@ -92,6 +93,7 @@ const App = () => {
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="BookDetail" component={BookDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
