@@ -32,46 +32,46 @@ import ShowMaps from "./screens/ShowMaps";
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [isReady, setIsReady] = useState(false);
+	const [isReady, setIsReady] = useState(false);
 
-  const loadFonts = async () => {
-    try {
-      await Font.loadAsync({
-        "Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
-        "Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
-        "Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
-        "Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
-      });
-    } catch (error) {
-      console.log("Error loading fonts:", error);
-    }
-  };
+	const loadFonts = async () => {
+		try {
+			await Font.loadAsync({
+				"Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
+				"Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
+				"Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
+				"Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
+			});
+		} catch (error) {
+			console.log("Error loading fonts:", error);
+		}
+	};
 
-  useEffect(() => {
-    const prepare = async () => {
-      try {
-        await SplashScreen.preventAutoHideAsync();
-        await loadFonts();
-        await SplashScreen.hideAsync();
-      } catch (error) {
-        console.log("Error:", error);
-      } finally {
-        setIsReady(true);
-      }
-    };
+	useEffect(() => {
+		const prepare = async () => {
+			try {
+				await SplashScreen.preventAutoHideAsync();
+				await loadFonts();
+				await SplashScreen.hideAsync();
+			} catch (error) {
+				console.log("Error:", error);
+			} finally {
+				setIsReady(true);
+			}
+		};
 
-    prepare();
-  }, []);
+		prepare();
+	}, []);
 
-  if (!isReady) {
-    return null;
-  }
+	if (!isReady) {
+		return null;
+	}
 
-  return (
+	return (
 		<NavigationContainer>
 			<StatusBar style="light" backgroundColor="#000" />
 			<Stack.Navigator
-				initialRouteName="ShowMaps"
+				initialRouteName="OnBoarding"
 				screenOptions={{ headerShown: false }}>
 				<Stack.Screen name="OnBoarding" component={OnBoarding} />
 				<Stack.Screen name="LoginPhone" component={LoginPhone} />
