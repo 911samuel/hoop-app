@@ -27,6 +27,7 @@ import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
 import PaymentSuccess from "./screens/PaymentSuccess";
+import PaymentDetails from "./screens/PayentDetails";
 
 const Stack = createStackNavigator();
 
@@ -70,7 +71,7 @@ const App = () => {
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="ParkingRoute"
+        initialRouteName="PaymentDetails"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
@@ -94,6 +95,7 @@ const App = () => {
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
         <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+        <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
