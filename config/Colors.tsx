@@ -10,6 +10,7 @@ const Colors = {
   background: "#f0ecf4",
   secondaryBackground: "#081024",
   thirdBackground: "#F4F4FA",
+  button: "#FFF3F3",
   black: "#1d1c1b",
   tomato: "#F43939",
   navy: "#130F26",
