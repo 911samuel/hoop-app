@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
-import { StatusBar } from "expo-status-bar";
 
 import OnBoarding from "./screens/OnBoarding";
 import LoginEmail from "./screens/LoginEmail";
@@ -27,7 +26,9 @@ import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
 import BookDetail from "./screens/BookDetail";
-
+import PaymentSuccess from "./screens/PaymentSuccess"
+import Payment from "./screens/Payment";
+import PaymentDetails from "./screens/PayentDetails'
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -68,9 +69,8 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="BookDetail"
+        initialRouteName="PaymentDetails'
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
@@ -94,6 +94,9 @@ const App = () => {
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
         <Stack.Screen name="Detail" component={Detail} />
         <Stack.Screen name="BookDetail" component={BookDetail} />
+        <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+        <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );
