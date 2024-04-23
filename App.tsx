@@ -26,7 +26,10 @@ import ParkingRoute from "./screens/ParkingRoute";
 import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
-
+import BookDetail from "./screens/BookDetail";
+import PaymentSuccess from "./screens/PaymentSuccess"
+import Payment from "./screens/Payment";
+import PaymentDetails from "./screens/PayentDetails'
 const Stack = createStackNavigator();
 
 const App = () => {
