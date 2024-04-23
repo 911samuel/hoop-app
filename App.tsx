@@ -4,7 +4,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
-import { StatusBar } from "expo-status-bar";
 
 import OnBoarding from "./screens/OnBoarding";
 import LoginEmail from "./screens/LoginEmail";
@@ -70,9 +69,8 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <StatusBar style="light" backgroundColor="#000" />
       <Stack.Navigator
-        initialRouteName="OnBoarding"
+        initialRouteName="PaymentDetails'
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
@@ -95,6 +93,10 @@ const App = () => {
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="BookDetail" component={BookDetail} />
+        <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+        <Stack.Screen name="Payment" component={Payment} />
+        <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
       </Stack.Navigator>
     </NavigationContainer>
   );

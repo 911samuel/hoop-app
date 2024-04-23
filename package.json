@@ -28,8 +28,10 @@
     "react-native-fingerprint-scanner": "^6.0.0",
     "react-native-gesture-handler": "~2.14.0",
     "react-native-otp-forminput": "^1.0.3",
+    "react-native-svg-uri": "^1.2.3",
     "react-native-swiper": "^1.6.0",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.6",
+    "expo-linear-gradient": "~12.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
