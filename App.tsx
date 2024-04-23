@@ -28,7 +28,7 @@ import Detail from "./screens/Detail";
 import BookDetail from "./screens/BookDetail";
 import PaymentSuccess from "./screens/PaymentSuccess"
 import Payment from "./screens/Payment";
-import PaymentDetails from "./screens/PayentDetails'
+import PaymentDetails from "./screens/PayentDetails"
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -70,7 +70,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="PaymentDetails'
+        initialRouteName="OnBoarding"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="OnBoarding" component={OnBoarding} />
