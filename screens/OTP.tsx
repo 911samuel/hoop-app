@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -7,10 +7,12 @@ import {
   TouchableOpacity,
   Dimensions,
 } from "react-native";
-import Colors from "../config/Colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import OTPInput from "react-native-otp-forminput";
 import { useNavigation } from "@react-navigation/native";
+
+import { AppwriteContext } from "../appwrite/AppwriteContext";
+import Colors from "../config/Colors";
 
 const { width, height } = Dimensions.get("window");
 
@@ -18,6 +20,8 @@ const OTP = () => {
   const navigation = useNavigation();
   const [otpCode, setOtpCode] = useState("");
   const [seconds, setSeconds] = useState(0);
+  const { appwrite, setIsLoggedIn } = useContext(AppwriteContext);
+
 
   const handleBack = () => {
     navigation.goBack();
@@ -26,7 +30,7 @@ const OTP = () => {
   const handleOtpChange = (code: string) => {
     setOtpCode(code);
     if (code.length === 4) {
-      navigation.navigate("Home" as never);
+            setIsLoggedIn(true);
     }
   };
 
