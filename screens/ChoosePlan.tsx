@@ -60,7 +60,7 @@ const ChoosePlan = () => {
 				<Image source={require("./assets/choosePlan.png")} />
 			</View>
 			<View>
-				<Plan />
+				<Plan active={false} period={''} description={''} price={''} />
 				<Plan
 					active={false}
 					period={"Monthly"}
