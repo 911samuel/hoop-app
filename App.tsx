@@ -3,12 +3,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import * as SplashScreen from "expo-splash-screen";
 import * as Font from "expo-font";
 import "react-native-gesture-handler";
-import AppwriteProvider from "./appwrite/AppwriteContext";
-import AppNavigator from "./routes/AppNavigator";
-import AuthNavigator from "./routes/AuthNavigator";
+
+import { AppNavigator, AuthNavigator } from "./AppNavigator";
+import { LoginContext } from "./components/LoginContext";
 
 const App = () => {
   const [isReady, setIsReady] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loadFonts = async () => {
     try {
@@ -43,14 +44,12 @@ const App = () => {
     return null;
   }
 
-  const isLoggedIn = false; 
-
   return (
-    <AppwriteProvider>
+    <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <NavigationContainer>
         {isLoggedIn ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
-    </AppwriteProvider>
+    </LoginContext.Provider>
   );
 };
 

@@ -1,6 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, TextInput } from 'react-native'
-
+import React from "react";
+import { StyleSheet, TextInput, KeyboardTypeOptions } from "react-native";
 
 interface InputBoxProps {
   placeHolder: string;
@@ -17,11 +16,21 @@ const InputBox = ({
   value,
   onChangeText,
 }: InputBoxProps) => {
+  let keyboardType: KeyboardTypeOptions | undefined;
+
+  if (inputMode === "email") {
+    keyboardType = "email-address";
+  } else if (inputMode === "password") {
+    keyboardType = "default"; 
+  } else if (inputMode === "phone") {
+    keyboardType = "phone-pad";
+  }
+
   return (
     <TextInput
-      style={style.input}
+      style={styles.input}
       placeholder={placeHolder}
-      keyboardType={inputMode === "email" ? "email-address" : "default"}
+      keyboardType={keyboardType}
       secureTextEntry={secureTextEntry}
       value={value}
       onChangeText={onChangeText}
@@ -29,16 +38,16 @@ const InputBox = ({
   );
 };
 
-const style = StyleSheet.create({
-    input:{
-        backgroundColor: '#fff',
-        width: '90%',
-        fontSize: 20,
-        padding: 20,
-        borderRadius: 10,
-        margin: 10,
-        marginBottom: 20
-    }
-})
+const styles = StyleSheet.create({
+  input: {
+    backgroundColor: "#fff",
+    width: "90%",
+    fontSize: 20,
+    padding: 20,
+    borderRadius: 10,
+    margin: 10,
+    marginBottom: 20,
+  },
+});
 
 export default InputBox;

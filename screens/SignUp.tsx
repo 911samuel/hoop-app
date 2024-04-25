@@ -11,7 +11,8 @@ import {
   Platform,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { AppwriteContext } from "../appwrite/AppwriteContext";
+import { Client, Account, ID } from "appwrite";
+
 import InputBox from "../components/InputBox";
 import AppButton from "../components/AppButton";
 
@@ -19,29 +20,33 @@ const { width, height } = Dimensions.get("window");
 
 const SignUp = () => {
   const navigation = useNavigation();
-  const { appwrite } = useContext(AppwriteContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [error, setError] = useState("");
 
+  const client = new Client()
+    .setEndpoint("https://cloud.appwrite.io/v1")
+    .setProject("66259128762986b20dac");
+  const account = new Account(client);
+
   const handleSignUp = async () => {
     try {
-      const result = await appwrite.createAccount({
+      const result = await account.create(
+        ID.unique(), 
         email,
         password,
-        repeatPassword,
-        phoneNumber,
-      });
+        phoneNumber
+      );
 
-      if ("error" in result) {
-        setError(result.error);
+      if (result.$id) {
+        navigation.navigate("OnBoarding" as never); 
       } else {
-        navigation.navigate("OnBoarding" as never);
+        setError("Account creation failed");
       }
     } catch (error: any) {
-      setError(error.message);
+      setError(error.message); 
     }
   };
 
@@ -49,14 +54,14 @@ const SignUp = () => {
     navigation.navigate("Login" as never);
   };
 
-	return (
+  return (
     <KeyboardAvoidingView
       style={{ flex: 1 }}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <ScrollView
         style={styles.view}
-        contentContainerStyle={{ flex: 1, alignContent: "center" }}
+        contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
       >
         <Image source={require("./assets/lines.png")} style={styles.img} />
         <Text style={styles.title}>Let's Start!!</Text>
@@ -66,26 +71,30 @@ const SignUp = () => {
               placeHolder="Email"
               value={email}
               onChangeText={setEmail}
+              inputMode="email"
             />
             <InputBox
               placeHolder="Password"
               secureTextEntry
               value={password}
               onChangeText={setPassword}
+              inputMode="password"
             />
             <InputBox
               placeHolder="Password Authentication"
               secureTextEntry
               value={repeatPassword}
               onChangeText={setRepeatPassword}
+              inputMode="password"
             />
             <InputBox
               placeHolder="Phone Number"
               value={phoneNumber}
               onChangeText={setPhoneNumber}
+              inputMode="phone"
             />
+            {error ? <Text style={styles.error}>{error}</Text> : null}
           </View>
-          {error ? <Text style={styles.error}>{error}</Text> : null}
           <View>
             <AppButton
               title="Register"
@@ -147,7 +156,7 @@ const styles = StyleSheet.create({
   },
   view: {
     backgroundColor: "#130F26",
-    position: "relative",
+    flex: 1,
   },
   error: {
     color: "red",

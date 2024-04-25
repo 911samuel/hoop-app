@@ -9,17 +9,24 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { AppwriteContext } from "../appwrite/AppwriteContext";
+import { Client, Account } from "appwrite";
 
 import AppButton from "../components/AppButton";
 import InputBox from "../components/InputBox";
 import SingUpText from "../components/SingUpText";
+import { LoginContext } from "../components/LoginContext";
 
 const { width, height } = Dimensions.get("window");
 
 const LoginEmail = () => {
   const navigation = useNavigation();
-  const { appwrite, setIsLoggedIn } = useContext(AppwriteContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(LoginContext);
+
+  const client = new Client()
+    .setEndpoint("https://cloud.appwrite.io/v1")
+    .setProject("66259128762986b20dac");
+
+  const account = new Account(client);
 
   const [error, setError] = useState<string>("");
   const [email, setEmail] = useState<string>("");
@@ -28,15 +35,18 @@ const LoginEmail = () => {
   const handleLogin = async () => {
     if (email.length < 1 || password.length < 1) {
       setError("All fields are required");
-      return;
-    }
-
-    try {
-      await appwrite.loginWithEmail({ email, password });
-      setIsLoggedIn(false);
-      navigation.navigate("RequestCode" as never);
-    } catch (error) {
-      setError("Incorrect email or password");
+    } else {
+      try {
+        const response = await account.createEmailPasswordSession(
+          email,
+          password
+        );
+        console.log(response);
+        setIsLoggedIn(true);
+      } catch (error) {
+        console.log(error);
+        setError("Incorrect email or password");
+      }
     }
   };
 
