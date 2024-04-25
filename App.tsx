@@ -7,6 +7,8 @@ import "react-native-gesture-handler";
 import { AppNavigator, AuthNavigator } from "./AppNavigator";
 import { LoginContext } from "./components/LoginContext";
 
+
+
 const App = () => {
   const [isReady, setIsReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -50,6 +52,7 @@ const App = () => {
         {isLoggedIn ? <AppNavigator /> : <AuthNavigator />}
       </NavigationContainer>
     </LoginContext.Provider>
+
   );
 };
 
