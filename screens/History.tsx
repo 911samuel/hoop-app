@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
 
 import AppHeading from "../components/AppHeading";
@@ -7,45 +7,81 @@ import SearchButton from "../components/SearchButton";
 import ItemListComponent from "../components/ItemListComponent";
 import NotificationIcon from "../components/NotificationIcon";
 import { useNavigation } from "@react-navigation/native";
+import { Client, Databases } from "appwrite";
 
-const data = [
-  {
-    id: "1",
-    title: "Graha Mall",
-    subtitle: "123 Dhaka Street",
-    price: 7,
-    image: require("../assets/Rectangle 59.png"),
-    time: "4 hours",
-    location: "A-6",
-    date: "12 Aug",
-  },
-  {
-    id: "2",
-    title: "Graha Mall",
-    subtitle: "123 Dhaka Street",
-    price: 7,
-    image: require("../assets/Rectangle 62.png"),
-    time: "4 hours",
-    date: "12 Aug",
-    location: "A-6",
-  },
-  {
-    id: "3",
-    title: "Graha Mall",
-    subtitle: "123 Dhaka Street",
-    price: 7,
-    image: require("../assets/Rectangle 62.png"),
-    time: "4 hours",
-    location: "A-6",
-    date: "12 Aug",
-  },
-];
+interface Document {
+  $id: string;
+  title?: string;
+  subtitle?: string;
+  image?: string;
+  price?: number;
+  time?: string;
+  date?: string;
+  location?: string;
+  min?: string;
+}
+
+interface Item {
+  id: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  price?: number;
+  time?: string;
+  date?: string;
+  location?: string;
+  min?: string;
+}
 
 const History = () => {
-  const sortedData = [...data].sort((a, b) => parseInt(b.id) - parseInt(a.id));
-  const recentlyData = sortedData.slice(0, 2);
-  const thisWeekData = sortedData.slice(0, 1);
+  const [data, setData] = useState<Document[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [recentlyData, setRecentlyData] = useState<Item[]>([]);
+  const [thisWeekData, setThisWeekData] = useState<Item[]>([]);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const client = new Client()
+      .setEndpoint("https://cloud.appwrite.io/v1")
+      .setProject("66259128762986b20dac");
+
+    const databases = new Databases(client);
+
+    databases
+      .listDocuments("662b8556d501bccf3b18", "662b85804a71e6c8bac8")
+      .then((response) => {
+        const sortedData = [...response.documents].sort(
+          (a, b) => parseInt(b.$id) - parseInt(a.$id)
+        );
+        setRecentlyData(
+          sortedData.slice(0, 2).map((doc) => ({
+            id: doc.$id,
+            title: doc.title || "Default Title",
+            subtitle: doc.subtitle || "Default Subtitle",
+            image: doc.image || require("../assets/Rectangle 59.png"),
+            min: doc.min,
+            price: doc.price,
+          }))
+        );
+        setThisWeekData(
+          sortedData.slice(0, 1).map((doc) => ({
+            id: doc.$id,
+            title: doc.title || "Default Title",
+            subtitle: doc.subtitle || "Default Subtitle",
+            image: doc.image || require("../assets/Rectangle 59.png"),
+            min: doc.min,
+            price: doc.price,
+          }))
+        );
+        setData(response.documents);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Error fetching data:", error);
+        setLoading(false);
+      });
+  }, []);
+
   const handleItem = () => {
     navigation.navigate("Detail" as never);
   };

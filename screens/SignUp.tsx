@@ -51,7 +51,7 @@ const SignUp = () => {
   };
 
   const navigateToLogin = () => {
-    navigation.navigate("Login" as never);
+    navigation.navigate("LoginEmail" as never);
   };
 
   return (
