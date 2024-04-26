@@ -26,80 +26,79 @@ import Profile from "./screens/Profile";
 import History from "./screens/History";
 import Detail from "./screens/Detail";
 import BookDetail from "./screens/BookDetail";
-import PaymentSuccess from "./screens/PaymentSuccess"
+import PaymentSuccess from "./screens/PaymentSuccess";
 import Payment from "./screens/Payment";
-import PaymentDetails from "./screens/PayentDetails"
+import PaymentDetails from "./screens/PayentDetails";
 const Stack = createStackNavigator();
 
 const App = () => {
-  const [isReady, setIsReady] = useState(false);
+	const [isReady, setIsReady] = useState(false);
 
-  const loadFonts = async () => {
-    try {
-      await Font.loadAsync({
-        "Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
-        "Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
-        "Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
-        "Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
-      });
-    } catch (error) {
-      console.log("Error loading fonts:", error);
-    }
-  };
+	const loadFonts = async () => {
+		try {
+			await Font.loadAsync({
+				"Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
+				"Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
+				"Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
+				"Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
+			});
+		} catch (error) {
+			console.log("Error loading fonts:", error);
+		}
+	};
 
-  useEffect(() => {
-    const prepare = async () => {
-      try {
-        await SplashScreen.preventAutoHideAsync();
-        await loadFonts();
-        await SplashScreen.hideAsync();
-      } catch (error) {
-        console.log("Error:", error);
-      } finally {
-        setIsReady(true);
-      }
-    };
+	useEffect(() => {
+		const prepare = async () => {
+			try {
+				await SplashScreen.preventAutoHideAsync();
+				await loadFonts();
+				await SplashScreen.hideAsync();
+			} catch (error) {
+				console.log("Error:", error);
+			} finally {
+				setIsReady(true);
+			}
+		};
 
-    prepare();
-  }, []);
+		prepare();
+	}, []);
 
-  if (!isReady) {
-    return null;
-  }
+	if (!isReady) {
+		return null;
+	}
 
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="OnBoarding"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="OnBoarding" component={OnBoarding} />
-        <Stack.Screen name="LoginPhone" component={LoginPhone} />
-        <Stack.Screen name="LoginEmail" component={LoginEmail} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-        <Stack.Screen name="EmailCheck" component={EmailCheck} />
-        <Stack.Screen name="OTP" component={OTP} />
-        <Stack.Screen name="RequestCode" component={RequestCode} />
-        <Stack.Screen name="Upgrade" component={Upgrade} />
-        <Stack.Screen name="ChoosePlan" component={ChoosePlan} />
-        <Stack.Screen name="DetailHistory" component={DetailHistory} />
-        <Stack.Screen name="Notification" component={Notifications} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Explore" component={Explore} />
-        <Stack.Screen name="History" component={History} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="DetailsCategory" component={DetailsCategory} />
-        <Stack.Screen name="EditProfile" component={EditProfile} />
-        <Stack.Screen name="ParkingRoute" component={ParkingRoute} />
-        <Stack.Screen name="Detail" component={Detail} />
-        <Stack.Screen name="BookDetail" component={BookDetail} />
-        <Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
-        <Stack.Screen name="Payment" component={Payment} />
-        <Stack.Screen name="PaymentDetails" component={PaymentDetails} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+	return (
+		<NavigationContainer>
+			<Stack.Navigator
+				initialRouteName="OnBoarding"
+				screenOptions={{ headerShown: false }}>
+				<Stack.Screen name="OnBoarding" component={OnBoarding} />
+				<Stack.Screen name="LoginPhone" component={LoginPhone} />
+				<Stack.Screen name="LoginEmail" component={LoginEmail} />
+				<Stack.Screen name="SignUp" component={SignUp} />
+				<Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+				<Stack.Screen name="EmailCheck" component={EmailCheck} />
+				<Stack.Screen name="OTP" component={OTP} />
+				<Stack.Screen name="RequestCode" component={RequestCode} />
+				<Stack.Screen name="Upgrade" component={Upgrade} />
+				<Stack.Screen name="ChoosePlan" component={ChoosePlan} />
+				<Stack.Screen name="DetailHistory" component={DetailHistory} />
+				<Stack.Screen name="Notification" component={Notifications} />
+				<Stack.Screen name="Home" component={Home} />
+				<Stack.Screen name="Explore" component={Explore} />
+				<Stack.Screen name="History" component={History} />
+				<Stack.Screen name="Profile" component={Profile} />
+				<Stack.Screen name="DetailsCategory" component={DetailsCategory} />
+				<Stack.Screen name="EditProfile" component={EditProfile} />
+				<Stack.Screen name="ParkingRoute" component={ParkingRoute} />
+				<Stack.Screen name="Detail" component={Detail} />
+				<Stack.Screen name="BookDetail" component={BookDetail} />
+				<Stack.Screen name="PaymentSuccess" component={PaymentSuccess} />
+				<Stack.Screen name="Payment" component={Payment} />
+				<Stack.Screen name="PaymentDetails" component={PaymentDetails} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 };
 
 export default App;
