@@ -18,7 +18,6 @@ const CardSlider = () => {
 	const cardWidth = width * 0.8;
 	const cardMargin = 30;
 
-	// Dummy data for card headings and checklist items
 	const cardsData = [
 		{
 			title: "Pro",

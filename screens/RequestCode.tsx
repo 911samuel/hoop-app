@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -8,6 +8,8 @@ import {
   Dimensions,
 } from "react-native";
 import OTPInput from "react-native-otp-forminput";
+
+import { AppwriteContext } from "../appwrite/AppwriteContext";
 import Colors from "../config/Colors";
 import { useNavigation } from "@react-navigation/native";
 
@@ -15,20 +17,21 @@ const { width, height } = Dimensions.get("window");
 
 const RequestCode = () => {
 	const [code, setCode] = useState("");
-	const navigation = useNavigation();
+  const navigation = useNavigation();
+  const { appwrite, setIsLoggedIn } = useContext(AppwriteContext);
 
   const handleCodeChange = (code: string) => {
     setCode(code);
     if (code.length === 4) {
-      navigation.navigate("Home" as never);
+      setIsLoggedIn(true);
     }
   };
 
   return (
     <ScrollView
-      contentContainerStyle={{ alignItems: "center", paddingTop: 100 }}
+      contentContainerStyle={{ paddingTop: 60 }}
     >
-      <View>
+      <View style={{alignItems: "center"}}>
         <Image source={require("./assets/requestCode.png")} />
       </View>
       <View style={{ alignItems: "center" }}>
