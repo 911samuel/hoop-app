@@ -14,38 +14,38 @@ const App = () => {
   const [isReady, setIsReady] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-	const loadFonts = async () => {
-		try {
-			await Font.loadAsync({
-				"Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
-				"Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
-				"Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
-				"Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
-			});
-		} catch (error) {
-			console.log("Error loading fonts:", error);
-		}
-	};
+  const loadFonts = async () => {
+    try {
+      await Font.loadAsync({
+        "Avenir-Black": require("./assets/Avenir/Avenir Black.ttf"),
+        "Avenir-Book": require("./assets/Avenir/Avenir Book.ttf"),
+        "Avenir-Light": require("./assets/Avenir/Avenir Light.ttf"),
+        "Avenir-Regular": require("./assets/Avenir/Avenir Regular.ttf"),
+      });
+    } catch (error) {
+      console.log("Error loading fonts:", error);
+    }
+  };
 
-	useEffect(() => {
-		const prepare = async () => {
-			try {
-				await SplashScreen.preventAutoHideAsync();
-				await loadFonts();
-				await SplashScreen.hideAsync();
-			} catch (error) {
-				console.log("Error:", error);
-			} finally {
-				setIsReady(true);
-			}
-		};
+  useEffect(() => {
+    const prepare = async () => {
+      try {
+        await SplashScreen.preventAutoHideAsync();
+        await loadFonts();
+        await SplashScreen.hideAsync();
+      } catch (error) {
+        console.log("Error:", error);
+      } finally {
+        setIsReady(true);
+      }
+    };
 
-		prepare();
-	}, []);
+    prepare();
+  }, []);
 
-	if (!isReady) {
-		return null;
-	}
+  if (!isReady) {
+    return null;
+  }
   return (
     <LoginContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       <NavigationContainer>
@@ -54,5 +54,6 @@ const App = () => {
     </LoginContext.Provider>
 
   );
+}
 
 export default App;

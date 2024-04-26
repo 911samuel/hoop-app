@@ -2,23 +2,36 @@ import React from "react";
 import { View, StyleSheet, Image, Text, TouchableOpacity } from "react-native";
 import Colors from "../config/Colors";
 
-interface CategoriesCardProps {
+interface Item {
   photo: any;
   title: string;
+}
+
+interface CategoriesCardProps {
+  data: Item[];
   onPress?: () => void;
 }
 
-const CategoriesCard = ({ photo, title, onPress }: CategoriesCardProps) => {
+const CategoriesCard = ({ data, onPress }: CategoriesCardProps) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={photo} style={styles.image} />
-      <Text style={styles.title}>{title}</Text>
-    </TouchableOpacity>
+    <View style={styles.container}>
+      {data.map((item, index) => (
+        <TouchableOpacity key={index} style={styles.card} onPress={onPress}>
+          <Image source={item.photo} style={styles.image} />
+          <Text style={styles.title}>{item.title}</Text>
+        </TouchableOpacity>
+      ))}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 50
+  },
+  card: {
     width: 67,
     height: 73,
     borderRadius: 10,

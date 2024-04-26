@@ -11,7 +11,8 @@ interface AppHeadingProps {
   paddingTop?: number;
   paddingBottom?: number;
   textAlign?: "center" | "auto" | "left" | "right" | "justify" | undefined;
-  width?: string,
+  width?: string;
+  onPress?: () => void;
 }
 
 function AppHeading({

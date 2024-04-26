@@ -34,12 +34,14 @@ const ForgotPassword = () => {
 
   const handleEmailCheck = async () => {
     try {
+      const url = "http://localhost:8081//#/EmailCheck";
       const response = await account.createRecovery(
         email,
-        "http://localhost:8081/"
+        url
       );
       console.log(response);
       setSuccess("A recovery email has been sent to your email address.");
+      navigation.navigate("EmailCheck" as never);
     } catch (error) {
       console.log(error);
       setError("An error occurred while sending the recovery email.");
@@ -68,7 +70,7 @@ const ForgotPassword = () => {
           with instructions to reset your password.
         </Text>
         <Text>{"\n"}Email Address</Text>
-        <InputBox placeHolder="Email" inputMode="email" />
+        <InputBox placeHolder="Email" inputMode="email" onChangeText={setEmail}/>
       </View>
       <View style={[style.division, style.footer]}>
         <AppButton

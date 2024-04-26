@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import OTPInput from "react-native-otp-forminput";
 
-import { AppwriteContext } from "../appwrite/AppwriteContext";
 import Colors from "../config/Colors";
 import { useNavigation } from "@react-navigation/native";
 
@@ -18,12 +17,10 @@ const { width, height } = Dimensions.get("window");
 const RequestCode = () => {
 	const [code, setCode] = useState("");
   const navigation = useNavigation();
-  const { appwrite, setIsLoggedIn } = useContext(AppwriteContext);
 
   const handleCodeChange = (code: string) => {
     setCode(code);
     if (code.length === 4) {
-      setIsLoggedIn(true);
     }
   };
 
