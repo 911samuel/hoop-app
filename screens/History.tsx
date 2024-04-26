@@ -10,7 +10,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const data = [
   {
-    id: 1,
+    id: "1",
     title: "Graha Mall",
     subtitle: "123 Dhaka Street",
     price: 7,
@@ -20,7 +20,7 @@ const data = [
     date: "12 Aug",
   },
   {
-    id: 2,
+    id: "2",
     title: "Graha Mall",
     subtitle: "123 Dhaka Street",
     price: 7,
@@ -30,7 +30,7 @@ const data = [
     location: "A-6",
   },
   {
-    id: 3,
+    id: "3",
     title: "Graha Mall",
     subtitle: "123 Dhaka Street",
     price: 7,
@@ -42,7 +42,7 @@ const data = [
 ];
 
 const History = () => {
-  const sortedData = [...data].sort((a, b) => b.id - a.id);
+  const sortedData = [...data].sort((a, b) => parseInt(b.id) - parseInt(a.id));
   const recentlyData = sortedData.slice(0, 2);
   const thisWeekData = sortedData.slice(0, 1);
   const navigation = useNavigation();

@@ -12,7 +12,7 @@ import { SimpleLineIcons, MaterialIcons } from "@expo/vector-icons";
 import Colors from "../config/Colors";
 
 interface Item {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   price?: number;
@@ -20,6 +20,7 @@ interface Item {
   time?: string;
   date?: string;
   location?: string;
+  min?: string
 }
 
 interface ItemListComponentProps {
@@ -76,7 +77,7 @@ const ItemListComponent = ({
         )}
         {!item.date && (
           <View style={styles.time}>
-            <Text style={styles.date}>{item.time}</Text>
+            <Text style={styles.date}>{item.min}</Text>
           </View>
         )}
       </View>
