@@ -47,6 +47,11 @@ const Home = () => {
 	const handleCategory = () => {
 		navigation.navigate("DetailsCategory" as never);
 	};
+	const handleProfile = () => {
+		navigation.navigate("Profile" as never);
+	};
+
+	
 	return (
 		<View style={styles.container}>
 			<View style={styles.headingContainer}>
@@ -65,6 +70,7 @@ const Home = () => {
 							color={Colors.primary}
 							textAlign="left"
 							paddingBottom={6}
+							onPress={handleProfile}
 						/>
 						<AppHeading
 							title="Find an easy parking spot"

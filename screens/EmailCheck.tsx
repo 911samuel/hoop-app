@@ -8,6 +8,7 @@ import {
 	Dimensions,
     Image,
 	Linking,
+  Alert,
 } from "react-native";
 import AppButton from "../components/AppButton";
 import Colors from "../config/Colors";
@@ -26,9 +27,20 @@ const EmailCheck = () => {
 	const handleOtherEmail = () => {
     navigation.navigate("OnBoarding" as never);
   };
-	const handleOpenGmail = () => {
-    Linking.openURL("googlegmail://");
-  };
+	const handleOpenGmail = async () => {
+    const url = "googlegmail://";
+    try {
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert("Error", "Unable to open Gmail app");
+      }
+    } catch (error) {
+      console.error("An error occurred", error);
+      Alert.alert("Error", "Unable to open Gmail app");
+    }
+  }
     return (
       <ScrollView
         contentContainerStyle={{ alignItems: "center", paddingTop: 100 }}
